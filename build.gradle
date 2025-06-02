@@ -99,7 +99,7 @@ neoForge {
 	}
 
 	mods {
-		neoforgetemplate {
+		purpswackystuff {
 			sourceSet sourceSets.main
 		}
 	}

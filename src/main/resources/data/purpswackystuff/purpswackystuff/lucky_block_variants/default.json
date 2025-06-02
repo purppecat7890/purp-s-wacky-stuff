@@ -1,0 +1,4 @@
+{
+  "chance_to_drop_nothing": 0.2,
+  "loot_table": "minecraft:chests/village/village_butcher"
+}
