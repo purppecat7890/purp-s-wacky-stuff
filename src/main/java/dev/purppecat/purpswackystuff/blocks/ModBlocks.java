@@ -1,23 +1,22 @@
 package dev.purppecat.purpswackystuff.blocks;
 
-import dev.purppecat.purpswackystuff.PurpsWackyStuffMod;
+import dev.purppecat.purpswackystuff.PurpsWackyStuff;
 import dev.purppecat.purpswackystuff.blocks.custom.PurpLuckyCharmBlock;
 import dev.purppecat.purpswackystuff.items.ModItems;
-import dev.thomasglasser.tommylib.api.platform.TommyLibServices;
 
+import dev.thomasglasser.tommylib.api.registration.DeferredBlock;
+import dev.thomasglasser.tommylib.api.registration.DeferredRegister;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredRegister;
+
 
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PurpsWackyStuffMod.MOD_ID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PurpsWackyStuff.MOD_ID);
 
     public static final DeferredBlock<PurpLuckyCharmBlock> PURP_LUCKY_BLOCK = registerBlock("purp_lucky_block",
             () -> new PurpLuckyCharmBlock(BlockBehaviour.Properties.of()
@@ -33,7 +32,5 @@ public class ModBlocks {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
-    public static void register(IEventBus bus) {
-        BLOCKS.register(bus);
-    }
+    public static void init() {}
 }

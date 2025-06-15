@@ -1,21 +1,15 @@
 package dev.purppecat.purpswackystuff.datagen;
 
-import dev.purppecat.purpswackystuff.PurpsWackyStuffMod;
+import dev.purppecat.purpswackystuff.PurpsWackyStuff;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
-import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, PurpsWackyStuffMod.MOD_ID);
+        super(output, registries, PurpsWackyStuff.MOD_ID);
     }
 
     @Override

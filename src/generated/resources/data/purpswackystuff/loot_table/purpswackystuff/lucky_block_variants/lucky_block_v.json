@@ -1,0 +1,24 @@
+{
+  "type": "purpswackystuff:custom_lucky_variant",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "expand": true,
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "c:tools/shield"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "purpswackystuff:purpswackystuff/lucky_block_variants/lucky_block_v"
+}

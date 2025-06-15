@@ -1,9 +1,8 @@
 package dev.purppecat.purpswackystuff.datagen;
 
-import dev.purppecat.purpswackystuff.PurpsWackyStuffMod;
+import dev.purppecat.purpswackystuff.PurpsWackyStuff;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -13,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, PurpsWackyStuffMod.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, PurpsWackyStuff.MOD_ID, existingFileHelper);
     }
 
 
