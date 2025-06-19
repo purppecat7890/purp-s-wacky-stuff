@@ -13,6 +13,6 @@ public class ModLootKeys {
     }
 
     private static ResourceKey<LootTable> modLoc(String name) {
-        return ResourceKey.create(Registries.LOOT_TABLE, PurpsWackyStuff.modLoc( name));
+        return ResourceKey.create(Registries.LOOT_TABLE, PurpsWackyStuff.modLoc(name));
     }
 }

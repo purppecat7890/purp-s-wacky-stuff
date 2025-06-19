@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class PurpsWackyStuff {
     public static final String MOD_ID = "purpswackystuff";
     public static final String MOD_NAME = "Purp's Wacky Stuff";
-    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
     public PurpsWackyStuff(IEventBus modEventBus) {
         ModBlocks.init();

@@ -3,17 +3,14 @@ package dev.purppecat.purpswackystuff.blocks;
 import dev.purppecat.purpswackystuff.PurpsWackyStuff;
 import dev.purppecat.purpswackystuff.blocks.custom.PurpLuckyCharmBlock;
 import dev.purppecat.purpswackystuff.items.ModItems;
-
 import dev.thomasglasser.tommylib.api.registration.DeferredBlock;
 import dev.thomasglasser.tommylib.api.registration.DeferredRegister;
+import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-
-
-import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PurpsWackyStuff.MOD_ID);

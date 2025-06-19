@@ -5,11 +5,9 @@ import dev.purppecat.purpswackystuff.blocks.ModBlocks;
 import dev.thomasglasser.tommylib.api.data.blockstates.ExtendedBlockStateProvider;
 import dev.thomasglasser.tommylib.api.registration.DeferredBlock;
 import net.minecraft.data.PackOutput;
-
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModBlockStateProvider extends ExtendedBlockStateProvider {
-
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, PurpsWackyStuff.MOD_ID, exFileHelper);
     }
@@ -21,6 +19,5 @@ public class ModBlockStateProvider extends ExtendedBlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.PURP_LUCKY_BLOCK);
-
     }
 }

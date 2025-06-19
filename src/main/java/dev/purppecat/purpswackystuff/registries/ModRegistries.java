@@ -6,6 +6,5 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 
 public class ModRegistries {
-    public static final ResourceKey<Registry<LuckyBlockVariant>> LUCKY_BLOCK_VARIANTS =
-            ResourceKey.createRegistryKey(PurpsWackyStuff.modLoc("lucky_block_variants"));
+    public static final ResourceKey<Registry<LuckyBlockVariant>> LUCKY_BLOCK_VARIANTS = ResourceKey.createRegistryKey(PurpsWackyStuff.modLoc("lucky_block_variants"));
 }

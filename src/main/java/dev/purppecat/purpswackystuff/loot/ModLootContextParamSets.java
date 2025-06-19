@@ -1,12 +1,11 @@
 package dev.purppecat.purpswackystuff.loot;
 
 import dev.purppecat.purpswackystuff.PurpsWackyStuff;
+import java.util.function.Consumer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-
-import java.util.function.Consumer;
 
 public class ModLootContextParamSets {
     public static final LootContextParamSet CUSTOM_LUCKY_VARIANT = register("custom_lucky_variant", builder -> builder
