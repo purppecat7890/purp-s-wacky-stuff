@@ -11,11 +11,11 @@ import net.minecraft.world.level.storage.loot.entries.TagEntry;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
-public record PurpsWackyStuffLoot(HolderLookup.Provider registries) implements LootTableSubProvider {
+public record PurpsWackyStuffLuckyBlockVariantLoot(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> biConsumer) {
         biConsumer.accept(
-                ModLootKeys.luckyblock,
+                PurpsWackyStuffLuckyBlockVariantLootKeys.PURP_LOOT,
                 LootTable.lootTable()
                         .withPool(
                                 LootPool.lootPool()

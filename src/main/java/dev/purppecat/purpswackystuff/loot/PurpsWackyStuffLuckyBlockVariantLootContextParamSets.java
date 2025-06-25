@@ -7,8 +7,8 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
-public class ModLootContextParamSets {
-    public static final LootContextParamSet CUSTOM_LUCKY_VARIANT = register("custom_lucky_variant", builder -> builder
+public class PurpsWackyStuffLuckyBlockVariantLootContextParamSets {
+    public static final LootContextParamSet LUCKY_BLOCK = register("lucky_block", builder -> builder
             .required(LootContextParams.THIS_ENTITY)
             .required(LootContextParams.ORIGIN)
             .build());

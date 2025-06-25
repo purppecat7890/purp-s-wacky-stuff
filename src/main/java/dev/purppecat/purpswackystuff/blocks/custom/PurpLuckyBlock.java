@@ -1,11 +1,11 @@
 package dev.purppecat.purpswackystuff.blocks.custom;
 
-import dev.purppecat.purpswackystuff.PurpsWackyStuff;
 import dev.purppecat.purpswackystuff.loot.LuckyBlockVariant;
-import dev.purppecat.purpswackystuff.loot.ModLootContextParamSets;
-import dev.purppecat.purpswackystuff.registries.ModRegistries;
-import java.util.List;
+import dev.purppecat.purpswackystuff.loot.PurpsWackyStuffLuckyBlockVariantLootContextParamSets;
+import dev.purppecat.purpswackystuff.registries.PurpsWackyStuffRegistries;
+import java.util.Optional;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.particles.ParticleTypes;
@@ -24,8 +24,8 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class PurpLuckyCharmBlock extends Block {
-    public PurpLuckyCharmBlock(Properties properties) {
+public class PurpLuckyBlock extends Block {
+    public PurpLuckyBlock(Properties properties) {
         super(properties);
     }
 
@@ -35,31 +35,26 @@ public class PurpLuckyCharmBlock extends Block {
             serverLevel.removeBlock(pos, false);
             serverLevel.sendParticles(ParticleTypes.END_ROD, (pos.getX() + .5), (pos.getY() + .5), (pos.getZ() + .5), 15, 0, 0, 0, 0.0001);
             RegistryAccess registryAccess = serverLevel.registryAccess();
-            Registry<LuckyBlockVariant> registry = registryAccess.registryOrThrow(ModRegistries.LUCKY_BLOCK_VARIANTS);
-            List<LuckyBlockVariant> variants = registry.stream().toList();
-            if (variants.isEmpty()) return null;
-            LuckyBlockVariant randomVariant = variants.get(serverLevel.getRandom().nextInt(variants.size()));
+            Registry<LuckyBlockVariant> registry = registryAccess.registryOrThrow(PurpsWackyStuffRegistries.LUCKY_BLOCK_VARIANT);
+            Optional<Holder.Reference<LuckyBlockVariant>> variants = registry.getRandom(serverLevel.random);
+            if (variants.isEmpty()) return InteractionResult.FAIL;
+            LuckyBlockVariant randomVariant = variants.get().value();
             float chance = randomVariant.chanceToDropNothing();
             float roll = serverLevel.getRandom().nextFloat();
-            PurpsWackyStuff.LOGGER.info("Chance: " + chance);
-            PurpsWackyStuff.LOGGER.info("Roll: " + roll);
             if (roll >= chance) {
                 LootTable lootTable = serverLevel.getServer().reloadableRegistries().getLootTable(randomVariant.lootTable());
 
-                LootParams.Builder builder = new LootParams.Builder(serverLevel);
-
-                builder.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(pos))
+                LootParams.Builder builder = new LootParams.Builder(serverLevel).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(pos))
                         .withParameter(LootContextParams.BLOCK_STATE, state)
-                        .withParameter(LootContextParams.THIS_ENTITY, player)
-                        .create(ModLootContextParamSets.CUSTOM_LUCKY_VARIANT);
+                        .withParameter(LootContextParams.THIS_ENTITY, player);
 
-                LootParams lootparams = builder.create(ModLootContextParamSets.CUSTOM_LUCKY_VARIANT);
+                LootParams lootparams = builder.create(PurpsWackyStuffLuckyBlockVariantLootContextParamSets.LUCKY_BLOCK);
                 lootTable.getRandomItems(lootparams, itemStack -> {
                     Block.popResource(level, pos, itemStack);
                 });
             } else {
-                if (player instanceof Player _player && !_player.level().isClientSide())
-                    _player.displayClientMessage(Component.literal("u got nothing"), false);
+                if (player.level().isClientSide())
+                    player.displayClientMessage(Component.literal("u got nothing"), false);
             }
 
         }
