@@ -54,7 +54,7 @@ public class PurpLuckyBlock extends Block {
                 });
             } else {
                 if (player.level().isClientSide())
-                    player.displayClientMessage(Component.literal("u got nothing"), false);
+                    player.displayClientMessage(Component.translatable("chat.purpswackystuff.ugotnothing"), false);
             }
 
         }

@@ -2,9 +2,9 @@ package dev.purppecat.purpswackystuff;
 
 import dev.purppecat.purpswackystuff.blocks.PurpsWackyStuffBlocks;
 import dev.purppecat.purpswackystuff.datagen.PurpsWackyStuffDataGenerators;
+import dev.purppecat.purpswackystuff.events.PurpsWackyStuffCoreEvents;
 import dev.purppecat.purpswackystuff.items.PurpsWackyStuffItems;
 import dev.purppecat.purpswackystuff.loot.PurpsWackyStuffLuckyBlockVariantLootContextParamSets;
-import dev.purppecat.purpswackystuff.registries.PurpsWackyStuffDatapackRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -22,7 +22,7 @@ public class PurpsWackyStuff {
         PurpsWackyStuffItems.init();
         PurpsWackyStuffLuckyBlockVariantLootContextParamSets.init();
 
-        modEventBus.addListener(PurpsWackyStuffDatapackRegistries::registerDatapackRegistries);
+        modEventBus.addListener(PurpsWackyStuffCoreEvents::registerDatapackRegistries);
         modEventBus.addListener(PurpsWackyStuffDataGenerators::gatherData);
     }
 

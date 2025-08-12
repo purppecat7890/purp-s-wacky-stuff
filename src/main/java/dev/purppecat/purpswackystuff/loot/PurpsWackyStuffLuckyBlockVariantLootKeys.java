@@ -9,7 +9,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 public class PurpsWackyStuffLuckyBlockVariantLootKeys {
     public static final ResourceKey<LootTable> PURP_LOOT = create("purp_loot");
 
-    private static ResourceKey<LootTable> create(String nameOfFile) {
-        return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(PurpsWackyStuff.MOD_ID, "lucky_block_variants/" + nameOfFile));
+    private static ResourceKey<LootTable> create(String name) {
+        return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(PurpsWackyStuff.MOD_ID, "lucky_block_variants/" + name));
     }
 }
