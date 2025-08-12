@@ -53,7 +53,7 @@ public class PurpLuckyBlock extends Block {
                     Block.popResource(level, pos, itemStack);
                 });
             } else {
-                if (player.level().isClientSide())
+                if (!player.level().isClientSide())
                     player.displayClientMessage(Component.translatable("chat.purpswackystuff.ugotnothing"), false);
             }
 
